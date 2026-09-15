@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wahyu Pratama — Drafter Jaringan Telekomunikasi</title>
+<meta name="description" content="Portofolio Wahyu Pratama, Drafter Jaringan Telekomunikasi bermitra Smallworld GIS, spesialis dokumentasi fiber optic OLT–ODP–Node-B.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #faf8f4;
+    --bg-soft: #f0ebe0;
+    --navy: #142c45;
+    --navy-2: #1e3f5f;
+    --accent: #3d6d94;
+    --gold: #b48c56;
+    --gold-soft: #d8bd93;
+    --text: #212a35;
+    --muted: #66727e;
+    --border: #e2dccd;
+    --shadow-sm: 0 1px 2px rgba(20,44,69,0.04), 0 1px 1px rgba(20,44,69,0.03);
+    --shadow-md: 0 8px 24px rgba(20,44,69,0.08), 0 2px 6px rgba(20,44,69,0.04);
+    --shadow-lg: 0 20px 48px rgba(20,44,69,0.14), 0 4px 12px rgba(20,44,69,0.06);
+    --font-display: 'Fraunces', serif;
+    --font-nav: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background-color: var(--bg);
+    background-image: radial-gradient(circle, rgba(20,44,69,0.06) 1px, transparent 1px);
+    background-size: 26px 26px;
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.65;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background: var(--navy); color:#fff; }
+  img{ max-width:100%; display:block; }
+
+  .container{ max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+  .eyebrow{
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Nav ---------- */
+  header.site-nav{
+    position: sticky; top:0; z-index:50;
+    background: rgba(250,248,244,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner{
+    max-width: 1080px; margin:0 auto; padding: 18px 32px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .nav-mark{ font-family: var(--font-display); font-weight:600; font-size:17px; font-style:italic; color: var(--navy); letter-spacing: -0.01em; }
+  .nav-links{ display:flex; gap:30px; font-family: var(--font-nav); font-size:13px; font-weight:600; }
+  .nav-links a{ color: var(--muted); transition: color .2s ease; position:relative; padding-bottom:2px; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; right:100%; bottom:-3px; height:2px;
+    background: var(--gold); transition: right .25s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{ color: var(--navy); }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after{ right:0; }
+  .nav-links a:focus-visible{ outline:1px solid var(--accent); outline-offset:4px; }
+  @media (max-width:640px){ .nav-links{ display:none; } }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 76px 0 90px; position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse 75% 60% at 80% 10%, rgba(180,140,86,0.16) 0%, transparent 60%),
+      radial-gradient(ellipse 90% 65% at 12% 0%, rgba(61,109,148,0.10) 0%, transparent 55%),
+      var(--bg);
+  }
+  .hero-route{
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    z-index: 0; pointer-events: none;
+    opacity: 0.9;
+    -webkit-mask-image: linear-gradient(180deg, black 70%, transparent 100%);
+    mask-image: linear-gradient(180deg, black 70%, transparent 100%);
+  }
+  .hero-route path{
+    fill: none; stroke: var(--border); stroke-width: 1.4;
+    stroke-dasharray: 6 6; stroke-dashoffset: 900;
+    animation: route-draw 2.6s ease-out forwards;
+  }
+  .hero-route .route-accent{ stroke: var(--gold-soft); stroke-dasharray: 3 5; }
+  .hero-route circle{ fill: var(--gold); opacity: 0; animation: route-dot 0.4s ease-out forwards; }
+  @keyframes route-draw{ to{ stroke-dashoffset: 0; } }
+  @keyframes route-dot{ to{ opacity: 0.5; } }
+  .hero-grid{
+    position: relative; z-index: 1;
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items:center;
+  }
+  @media (max-width: 860px){ .hero-grid{ grid-template-columns:1fr; gap:40px; } .hero-grid .photo-col{ order:-1; max-width:220px; margin:0 auto; } }
+
+  .hero h1{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.3rem, 4.8vw, 3.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+  .hero h1 span{ display:block; font-family: var(--font-body); font-weight:450; font-size: 0.4em; line-height:1.4; color: var(--accent); margin-top:14px; letter-spacing: 0; }
+  .hero p.lead{ color: var(--muted); font-size: 1.05rem; max-width: 50ch; margin-bottom: 28px; }
+
+  .hero-meta{ display:flex; flex-direction:column; gap:8px; margin-bottom: 30px; }
+  .hero-meta .row{ display:flex; gap:10px; font-size: 13.5px; color: var(--text); }
+  .hero-meta .row .k{ color: var(--muted); min-width: 92px; }
+
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    font-family: var(--font-body); font-size: 14px; font-weight:600;
+    padding: 13px 24px; border-radius: 6px; border: 1px solid var(--navy);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{ background: var(--navy); color:#fff; box-shadow: var(--shadow-sm); }
+  .btn-primary:hover, .btn-primary:focus-visible{ background: var(--navy-2); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .btn-ghost{ color: var(--navy); background: transparent; }
+  .btn-ghost:hover, .btn-ghost:focus-visible{ background: var(--bg-soft); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+  .btn:focus-visible{ outline: 2px solid var(--accent); outline-offset:2px; }
+
+  /* photo placeholder */
+  .photo-col{ position: relative; }
+  .photo-col::before{
+    content:'';
+    position: absolute;
+    top: 16px; left: 16px;
+    width: 100%; height: 100%;
+    border: 1.5px solid var(--gold-soft);
+    border-radius: 12px;
+    z-index: 0;
+  }
+  .photo-frame{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap: 10px;
+    overflow: hidden;
+  }
+  .photo-frame img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+  .photo-frame .ph-icon{ color: var(--muted); opacity: 0.55; }
+  .photo-frame .ph-text{ font-size: 12.5px; color: var(--muted); text-align:center; padding: 0 20px; }
+
+  /* ---------- Section shell ---------- */
+  section{ padding: 84px 0; position: relative; overflow: hidden; }
+  section.bg-soft{
+    background:
+      radial-gradient(ellipse 70% 50% at 90% 0%, rgba(180,140,86,0.10) 0%, transparent 60%),
+      var(--bg-soft);
+  }
+  .section-head{ margin-bottom: 44px; max-width: 60ch; position: relative; }
+  .sec-num{
+    position: absolute;
+    top: -38px; right: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 7rem;
+    color: rgba(20,44,69,0.055);
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+  @media (max-width: 700px){ .sec-num{ display:none; } }
+  .section-head h2{
+    font-family: var(--font-display); font-weight: 600; color: var(--navy);
+    font-size: clamp(1.7rem, 3.2vw, 2.3rem); margin-bottom: 10px; letter-spacing: -0.01em;
+  }
+  .section-head p{ color: var(--muted); font-size: 0.98rem; }
+
+  /* ---------- About ---------- */
+  .about-grid{ display:grid; grid-template-columns: 0.95fr 1.05fr; gap: 56px; align-items:start; }
+  @media (max-width: 800px){ .about-grid{ grid-template-columns:1fr; } }
+
+  .fact-list .fact{ display:flex; justify-content:space-between; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .fact-list .fact:first-child{ padding-top:0; }
+  .fact-list .k{ color: var(--muted); }
+  .fact-list .v{ font-weight: 600; color: var(--navy); text-align:right; }
+
+  .about-text p{ color: var(--text); margin-bottom: 16px; max-width: 64ch; }
+  .about-text p:last-child{ margin-bottom:0; }
+  .about-text b{ color: var(--navy); }
+
+  /* ---------- Work Gallery ---------- */
+  .gallery-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 760px){ .gallery-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px){ .gallery-grid{ grid-template-columns: 1fr; } }
+
+  .gallery-item{
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .gallery-item:hover{ transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .gallery-thumb{
+    aspect-ratio: 4/3;
+    background: var(--bg-soft);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; position:relative;
+  }
+  .gallery-thumb img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .gallery-thumb .ph-icon{ color: var(--muted); opacity:.5; }
+  .gallery-caption{ padding: 14px 16px; }
+  .gallery-caption .title{ font-weight:600; font-size: 13.5px; color: var(--navy); margin-bottom:2px; }
+  .gallery-caption .sub{ font-size: 12px; color: var(--muted); }
+
+  /* ---------- Experience ---------- */
+  .exp-item{ display:grid; grid-template-columns: 130px 1fr; gap: 32px; }
+  @media (max-width: 700px){ .exp-item{ grid-template-columns:1fr; gap:14px; } }
+  .exp-time{ font-size: 13px; font-weight:600; color: var(--accent); padding-top:4px; }
+  .exp-body{ border-left: 2px solid var(--border); padding-left: 28px; position:relative; }
+  .exp-body::before{
+    content:''; position:absolute; left:-6px; top:4px; width:10px; height:10px;
+    border-radius:50%; background: var(--navy);
+  }
+  .exp-role{ font-family: var(--font-display); font-size: 1.3rem; font-weight:600; color: var(--navy); margin-bottom:2px; }
+  .exp-org{ color: var(--muted); font-size: 0.9rem; margin-bottom: 20px; }
+
+  .log-list{ display:flex; flex-direction:column; gap: 20px; }
+  .log-entry{ font-size: 0.94rem; color: var(--text); padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+  .log-entry:last-child{ border-bottom:none; padding-bottom:0; }
+  .log-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+  .tag{ font-size: 12px; font-weight:600; color: var(--accent); }
+  .tag::before{ content:'— '; color: var(--border); }
+  .tag.gold{ color: var(--gold); }
+
+  /* Case study block */
+  .case-study{
+    margin-top: 34px;
+    padding: 28px 30px;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: var(--shadow-md);
+  }
+  .case-study .cs-label{
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--gold); margin-bottom: 10px;
+  }
+  .case-study h4{
+    font-family: var(--font-display); font-size: 1.2rem; font-weight:600; color: var(--navy);
+    margin-bottom: 18px;
+  }
+  .case-study .cs-row{ margin-bottom: 16px; }
+  .case-study .cs-row:last-child{ margin-bottom:0; }
+  .case-study .cs-k{
+    font-size: 11.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    color: var(--accent); margin-bottom: 5px;
+  }
+  .case-study .cs-v{ font-size: 0.92rem; color: var(--text); }
+
+  /* Diagnostic panel — lighter weight than case-study, supporting proof point */
+  .diag-panel{
+    margin-top: 22px;
+    padding: 22px 26px;
+    background: var(--bg-soft);
+    border-radius: 8px;
+  }
+  .diag-panel .dp-label{
+    font-size: 11.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .diag-panel h5{
+    font-family: var(--font-display); font-size: 0.96rem; font-weight:700; color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .diag-causes{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 700px){ .diag-causes{ grid-template-columns:1fr; } }
+  .diag-cause{ font-size: 12.5px; color: var(--muted); padding-left: 14px; border-left: 2px solid var(--border); }
+  .diag-cause b{ display:block; color: var(--text); font-size: 13px; margin-bottom: 3px; font-weight:600; }
+
+  /* Stat strip */
+  .stat-strip{ display:flex; margin-bottom: 46px; border: 1px solid var(--border); border-radius: 10px; overflow:hidden; background:#fff; box-shadow: var(--shadow-sm); }
+  .stat-strip .stat{ flex:1; padding: 24px 26px; border-left: 1px solid var(--border); }
+  .stat-strip .stat:first-child{ border-left:none; }
+  @media (max-width: 700px){ .stat-strip{ flex-direction:column; } .stat-strip .stat{ border-left:none; border-top:1px solid var(--border); } .stat-strip .stat:first-child{ border-top:none; } }
+  .stat-strip .stat .num{ font-family: var(--font-mono); font-weight:600; font-size: 1.8rem; color: var(--navy); line-height:1; margin-bottom: 8px; }
+  .stat-strip .stat .lbl{ font-size: 12.5px; color: var(--muted); }
+
+  /* ---------- Skills ---------- */
+  .skills-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  @media (max-width: 700px){ .skills-grid{ grid-template-columns:1fr; gap: 36px; } }
+  .skill-col h3{
+    font-family: var(--font-display); font-size: 17px; font-weight:600; font-style:italic; color: var(--navy);
+    margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--navy);
+    display:inline-block;
+  }
+  .skill-list{ display:flex; flex-direction:column; }
+  .skill-list .item{
+    padding: 13px 0; border-bottom: 1px solid var(--border); font-size: 0.94rem; color: var(--text);
+    display:flex; align-items:center; gap:12px;
+  }
+  .skill-list .item::before{
+    content:''; width:6px; height:6px; border-radius:50%; background: var(--gold); flex-shrink:0;
+  }
+  .skill-list .item:last-child{ border-bottom:none; }
+
+  .lang-row{ display:flex; gap: 40px; margin-top: 26px; }
+  .lang-item b{ display:block; color: var(--navy); font-size: 14px; margin-bottom: 2px; }
+  .lang-item span{ font-size: 12.5px; color: var(--muted); }
+
+  /* ---------- Education / Certs ---------- */
+  .edu-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 46px; }
+  @media (max-width: 700px){ .edu-grid{ grid-template-columns:1fr; } }
+  .edu-year{ font-size: 12.5px; font-weight:700; color: var(--accent); margin-bottom: 8px; }
+  .edu-title{ font-family: var(--font-display); font-weight:600; color: var(--navy); font-size: 1.3rem; margin-bottom:4px; }
+  .edu-org{ color: var(--muted); font-size: 0.88rem; margin-bottom: 10px; }
+  .edu-badge{
+    display:inline-block; font-size: 12px; font-weight:600; color: var(--gold);
+    border: 1px solid var(--gold); border-radius: 20px; padding: 3px 12px; margin-top: 4px;
+  }
+
+  .cert-row{ display:flex; justify-content:space-between; align-items:center; gap:20px; padding: 16px 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+  .cert-row:last-child{ border-bottom:none; }
+  .cert-main{ display:flex; align-items:center; gap: 16px; }
+  .cert-thumb{
+    width: 52px; height: 52px; flex-shrink:0;
+    border-radius: 6px; border: 1px solid var(--border); background: var(--bg-soft);
+    box-shadow: var(--shadow-sm);
+    display:flex; align-items:center; justify-content:center;
+    color: var(--gold); opacity: 0.85;
+  }
+  .cert-name{ color: var(--text); font-weight:500; }
+  .cert-org{ color: var(--muted); font-size: 0.82rem; margin-top:2px; }
+  .cert-year{ font-weight:600; color: var(--accent); font-size: 13px; white-space:nowrap; }
+
+  /* ---------- Contact ---------- */
+  .contact-panel{
+    text-align:center;
+    padding: 64px 40px;
+    border-radius: 16px;
+    background: linear-gradient(155deg, var(--navy) 0%, var(--navy-2) 100%);
+    box-shadow: var(--shadow-lg);
+  }
+  .contact-panel .eyebrow{ color: var(--gold-soft); }
+  .contact-panel h2{ font-family: var(--font-display); font-weight:600; color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom:14px; }
+  .contact-panel p{ color: rgba(255,255,255,0.72); margin-bottom: 32px; max-width: 50ch; margin-left:auto; margin-right:auto; }
+  .contact-links{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+  .contact-panel .btn-primary{ background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .contact-panel .btn-primary:hover{ background: var(--gold-soft); }
+  .contact-panel .btn-ghost{ color: #fff; border-color: rgba(255,255,255,0.35); }
+  .contact-panel .btn-ghost:hover{ background: rgba(255,255,255,0.08); }
+
+  footer{ text-align:center; padding: 36px 0 50px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); }
+
+  .reveal{ opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-mark">Wahyu Pratama</div>
+    <nav class="nav-links">
+      <a href="#about">Profil</a>
+      <a href="#work">Hasil Kerja</a>
+      <a href="#experience">Pengalaman</a>
+      <a href="#skills">Keahlian</a>
+      <a href="#education">Pendidikan</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-route" viewBox="0 0 1080 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M -20 340 C 180 280, 260 400, 420 320 S 680 200, 860 260 S 1050 180, 1140 220" style="animation-delay:0.1s"/>
+      <path class="route-accent" d="M -20 120 C 160 180, 300 60, 480 130 S 760 220, 900 140 S 1080 60, 1160 100" style="animation-delay:0.4s"/>
+      <path d="M 200 -20 C 260 120, 180 220, 320 300 S 500 420, 460 540" style="animation-delay:0.7s"/>
+      <circle cx="420" cy="320" r="4"/>
+      <circle cx="860" cy="260" r="4"/>
+      <circle cx="480" cy="130" r="3.5"/>
+      <circle cx="320" cy="300" r="3.5"/>
+    </svg>
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Drafter Jaringan Telekomunikasi</div>
+        <h1>Wahyu Pratama<span>Memetakan infrastruktur fiber optic dengan presisi — dari OLT hingga ODP dan Node-B.</span></h1>
+        <p class="lead">Berpengalaman mengoperasikan Smallworld GIS untuk dokumentasi jaringan berskala nasional, menyelesaikan gangguan data di level inventory, dan menjaga akurasi antara kondisi lapangan dan basis data perusahaan.</p>
+        <div class="hero-meta">
+          <div class="row"><span class="k">Lokasi</span><span>Manado, Indonesia</span></div>
+          <div class="row"><span class="k">Posisi</span><span>Drafter — PT. Telkom Akses (2022–Sekarang)</span></div>
+          <div class="row"><span class="k">Pendidikan</span><span>S1 Informatika, Universitas Telkom</span></div>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:wyuupratama@gmail.com">Kirim Email</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/wyupratama" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="photo-col">
+        <!-- GANTI FOTO: ubah <div class="photo-frame">...</div> menjadi
+             <div class="photo-frame"><img src="foto.jpg" alt="Foto Wahyu Pratama"></div>
+             setelah upload foto.jpg ke repository yang sama -->
+        <div class="photo-frame">
+          <svg class="ph-icon" width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          <div class="ph-text">Foto profil — ganti dengan foto.jpg</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="bg-soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-num">01</span>
+        <div class="eyebrow">Profil</div>
+        <h2>Presisi di lapangan, akurat di data.</h2>
+        <p>Menjembatani kondisi jaringan aktual dengan basis data perusahaan — dari drawing teknis hingga rekonsiliasi inventory.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="fact-list reveal">
+          <div class="fact"><span class="k">Lokasi</span><span class="v">Manado, Indonesia</span></div>
+          <div class="fact"><span class="k">Posisi Saat Ini</span><span class="v">Drafter — PT. Telkom Akses</span></div>
+          <div class="fact"><span class="k">Masa Kerja</span><span class="v">2022 – Sekarang</span></div>
+          <div class="fact"><span class="k">Tools Utama</span><span class="v">Smallworld GIS, Nossf-UIM</span></div>
+          <div class="fact"><span class="k">Pendidikan</span><span class="v">S1 Informatika, Universitas Telkom</span></div>
+        </div>
+
+        <div class="about-text reveal">
+          <p>Saya bekerja sebagai <b>drafter jaringan telekomunikasi</b>, memetakan dan mendokumentasikan infrastruktur fiber optic yang menopang operasional jaringan berskala nasional. Fokus saya bukan sekadar menggambar topologi, tapi memastikan setiap data yang saya hasilkan bisa dipercaya dan ditelusuri kapan pun dibutuhkan.</p>
+          <p>Mengoperasikan <b>Smallworld GIS</b> setiap hari untuk menangani proyek di level <b>ODP</b>, <b>ODC</b>, hingga <b>Node-B (BTS)</b> — mulai dari pembangunan jaringan baru sampai rekonsiliasi data ketika kondisi lapangan dan sistem sudah tidak lagi sejalan.</p>
+          <p>Latar belakang informatika membentuk cara saya melihat masalah: menelusuri akar penyebab lebih dulu, bukan sekadar memperbaiki apa yang tampak salah di permukaan. Pendekatan itu yang saya pegang dalam menjaga akurasi setiap titik jaringan yang saya tangani — karena satu data yang keliru bisa berdampak lebih jauh dari yang terlihat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK GALLERY -->
+  <section id="work">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-num">02</span>
+        <div class="eyebrow">Hasil Kerja</div>
+        <h2>Contoh Dokumentasi &amp; Drawing</h2>
+        <p>Cuplikan hasil kerja seperti As Build Drawing, peta lokasi, dan skematik jaringan.</p>
+      </div>
+
+      <!-- ====================================================================
+           GANTI GAMBAR DI SINI
+           Untuk tiap .gallery-thumb di bawah, tambahkan 1 baris <img> di dalamnya:
+           <img src="NAMA-FILE.jpg" alt="deskripsi singkat">
+           Nama file sudah disarankan di komentar atas tiap item, tinggal sesuaikan.
+           ==================================================================== -->
+      <div class="gallery-grid reveal">
+        <div class="gallery-item">
+          <!-- saran nama file: abd.jpg -->
+          <div class="gallery-thumb">
+            <svg class="ph-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="title">As Build Drawing (ABD)</div>
+            <div class="sub">Dokumentasi topologi OLT–ODP</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <!-- saran nama file: petlok.jpg -->
+          <div class="gallery-thumb">
+            <svg class="ph-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="title">Peta Lokasi (Petlok)</div>
+            <div class="sub">Pemetaan titik distribusi jaringan</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <!-- saran nama file: nodeb.jpg -->
+          <div class="gallery-thumb">
+            <svg class="ph-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="title">Skematik Jaringan Node-B</div>
+            <div class="sub">Desain jaringan OLT ke BTS</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <!-- saran nama file: odc-valins.jpg -->
+          <div class="gallery-thumb">
+            <svg class="ph-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="title">Validasi Instalasi ODC</div>
+            <div class="sub">Kapasitas, panel &amp; splitter sesuai lapangan</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <!-- saran nama file: splitter-upgrade.jpg -->
+          <div class="gallery-thumb">
+            <svg class="ph-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="title">Upgrade Splitter 1:8 → 1:16</div>
+            <div class="sub">Rekonsiliasi data lapangan &amp; inventory</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <!-- saran nama file: error-1007.jpg -->
+          <div class="gallery-thumb">
+            <svg class="ph-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="title">Diagnosa Error 1007 UIM</div>
+            <div class="sub">Penelusuran koneksi &amp; joint anomali</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="bg-soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-num">03</span>
+        <div class="eyebrow">Pengalaman</div>
+        <h2>Riwayat Kerja</h2>
+      </div>
+
+      <div class="stat-strip reveal">
+        <div class="stat"><div class="num">300+</div><div class="lbl">Titik ODP &amp; Node-B ditangani</div></div>
+        <div class="stat"><div class="num">1–2 jam</div><div class="lbl">Rata-rata penyelesaian kasus mismatch data</div></div>
+        <div class="stat"><div class="num">2022</div><div class="lbl">Bergabung di PT. Telkom Akses</div></div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-time">2022 — Sekarang</div>
+        <div class="exp-body">
+          <div class="exp-role">Drafter – Perencanaan &amp; Dokumentasi Jaringan Telekomunikasi</div>
+          <div class="exp-org">PT. Telkom Akses</div>
+
+          <div class="log-list">
+            <div class="log-entry">
+              Mengoperasikan Smallworld GIS untuk pemetaan dan drawing topologi jaringan end-to-end, dari OLT ke titik distribusi ODP maupun ke Node-B (BTS), memastikan data spasial jaringan akurat dan dapat ditelusuri.
+              <div class="log-tags"><span class="tag">Smallworld GIS</span><span class="tag">Topologi End-to-End</span></div>
+            </div>
+            <div class="log-entry">
+              Membuat As Build Drawing (ABD), peta lokasi (petlok), dan skematik jaringan yang direkonsiliasi bersama tim admin agar dokumentasi teknis sesuai dengan basis data perusahaan.
+              <div class="log-tags"><span class="tag">ABD</span><span class="tag">Petlok</span></div>
+            </div>
+            <div class="log-entry">
+              Mengelola proses terminasi inventory ODP secara menyeluruh hingga status go-live pada sistem Nossf-UIM, menjaga sinkronisasi antara kondisi lapangan dan basis data perusahaan.
+              <div class="log-tags"><span class="tag">Nossf-UIM</span><span class="tag gold">Go-Live</span></div>
+            </div>
+            <div class="log-entry">
+              Menelusuri dan menyelesaikan ketidaksesuaian data ODP antara Smallworld GIS dan Nossf-UIM (ODP Not Identify) — selisih jumlah port/splitter, koneksi terputus, titik putus kabel, hingga duplikasi data — melalui verifikasi ulang lapangan dan penyesuaian data pada kedua sistem.
+              <div class="log-tags"><span class="tag gold">Troubleshooting Data</span><span class="tag">Verifikasi Lapangan</span></div>
+            </div>
+            <div class="log-entry">
+              Berkoordinasi dengan tim lapangan dan teknis untuk memvalidasi hasil drawing terhadap kondisi aktual jaringan, meminimalkan selisih data (data mismatch) yang berdampak pada operasional.
+              <div class="log-tags"><span class="tag">Koordinasi Tim</span></div>
+            </div>
+            <div class="log-entry">
+              Melakukan validasi instalasi (valins) ODC di Smallworld GIS dengan memperbaiki data kapasitas, panel, splitter, dan connectivity agar sesuai kondisi aktual di lapangan — termasuk saat terjadi perubahan posisi port atau upgrade kapasitas ODC yang belum tercermin di sistem.
+              <div class="log-tags"><span class="tag">Validasi ODC</span><span class="tag">Smallworld GIS</span></div>
+            </div>
+            <div class="log-entry">
+              Terlibat dalam proyek JPP MD T-SEL — membangun dan menggambar ODP baru baik dalam bentuk klaster perumahan maupun tersebar di sepanjang jalur jalan — serta proyek pembangunan jaringan Node-B (BTS) dengan tarikan jarak jauh ke wilayah yang belum tercover tower.
+              <div class="log-tags"><span class="tag">JPP MD T-SEL</span><span class="tag gold">Node-B / BTS</span></div>
+            </div>
+          </div>
+
+          <div class="case-study">
+            <div class="cs-label">Studi Kasus</div>
+            <h4>Rekonsiliasi Data Setelah Upgrade Kapasitas ODP (1:8 → 1:16)</h4>
+            <div class="cs-row">
+              <div class="cs-k">Masalah</div>
+              <div class="cs-v">Saat kapasitas ODP di lapangan di-upgrade dari splitter 1:8 ke 1:16 untuk menambah jumlah pelanggan yang bisa dilayani, perangkat lama (splitter &amp; panel kapasitas 8) tidak otomatis terhapus dari sistem inventory setelah perangkat baru terpasang. Akibatnya, data lapangan, Smallworld GIS, dan inventory jadi tidak sinkron.</div>
+            </div>
+            <div class="cs-row">
+              <div class="cs-k">Langkah</div>
+              <div class="cs-v">Memverifikasi kondisi fisik ODP di lapangan, mencocokkan dengan drawing di Smallworld GIS, lalu memperbaiki data inventory — splitter dan panel harus selalu sepasang dalam kapasitas yang sama — agar ketiga sumber data kembali sinkron.</div>
+            </div>
+            <div class="cs-row">
+              <div class="cs-k">Hasil</div>
+              <div class="cs-v">Data kapasitas ODP akurat dan bebas duplikasi, dengan rata-rata penyelesaian 1–2 jam per kasus.</div>
+            </div>
+            <!-- GANTI GAMBAR: tambahkan <img src="cs-bukti.jpg" alt="Bukti before/after data ODP">
+                 di dalam .cs-row terakhir ini kalau punya screenshot before/after -->
+            <div class="cs-row">
+              <div class="cs-k">Bukti / Dokumentasi</div>
+              <div class="gallery-thumb" style="max-width:340px; border-radius:8px; border:1px solid var(--border);">
+                <svg class="ph-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="diag-panel">
+            <div class="dp-label">Kemampuan Diagnosa</div>
+            <h5>Menelusuri Akar Masalah Error 1007 pada Sistem UIM</h5>
+            <div class="diag-causes">
+              <div class="diag-cause"><b>Jaringan terputus</b>Koneksi di sistem UIM tidak end-to-end</div>
+              <div class="diag-cause"><b>Sambungan salah</b>Koneksi sistem terbalik atau tertukar</div>
+              <div class="diag-cause"><b>Anomali joint</b>Koneksi joint tidak terbaca oleh sistem</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-num">04</span>
+        <div class="eyebrow">Keahlian</div>
+        <h2>Kompetensi Teknis</h2>
+      </div>
+
+      <div class="skills-grid reveal">
+        <div class="skill-col">
+          <h3>Jaringan &amp; Drafting</h3>
+          <div class="skill-list">
+            <div class="item">Smallworld GIS</div>
+            <div class="item">Nossf-UIM (Inventory)</div>
+            <div class="item">Desain Jaringan OLT–ODP (ABD)</div>
+            <div class="item">Desain Jaringan OLT–Node-B</div>
+          </div>
+        </div>
+        <div class="skill-col">
+          <h3>Tools &amp; Lainnya</h3>
+          <div class="skill-list">
+            <div class="item">Microsoft Office / Google Workspace</div>
+            <div class="item">VS Code</div>
+            <div class="item">Git</div>
+          </div>
+          <div class="lang-row">
+            <div class="lang-item"><b>Bahasa Indonesia</b><span>Native</span></div>
+            <div class="lang-item"><b>Bahasa Inggris</b><span>Dasar</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="bg-soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="sec-num">05</span>
+        <div class="eyebrow">Pendidikan &amp; Sertifikasi</div>
+        <h2>Latar Belakang Akademik</h2>
+      </div>
+
+      <div class="edu-grid reveal" style="grid-template-columns: 1fr; max-width: 360px;">
+        <div>
+          <div class="edu-year">2023</div>
+          <div class="edu-title">S1 Informatika</div>
+          <div class="edu-org">Universitas Telkom</div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           GANTI GAMBAR DI SINI (scan/foto sertifikat)
+           Tambahkan <img src="NAMA-FILE.jpg" alt="..."> di dalam tiap .cert-thumb.
+           Saran nama file ada di komentar atas tiap baris.
+           ==================================================================== -->
+      <div class="reveal">
+        <div class="cert-row">
+          <!-- saran nama file: cert-risk-management.jpg -->
+          <div class="cert-main">
+            <div class="cert-thumb">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>
+            </div>
+            <div><div class="cert-name">Risk Management — E-Learning</div><div class="cert-org">Fiber Academy, PT. Telkom Akses · Grade Point 100</div></div>
+          </div>
+          <div class="cert-year">2022</div>
+        </div>
+        <div class="cert-row">
+          <!-- saran nama file: cert-pkl.jpg -->
+          <div class="cert-main">
+            <div class="cert-thumb">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>
+            </div>
+            <div><div class="cert-name">Praktik Kerja Industri (PKL)</div><div class="cert-org">PT. Telkom Witel Makassar · Nilai 94,63</div></div>
+          </div>
+          <div class="cert-year">2020</div>
+        </div>
+        <div class="cert-row">
+          <!-- saran nama file: cert-cisco.jpg -->
+          <div class="cert-main">
+            <div class="cert-thumb">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>
+            </div>
+            <div><div class="cert-name">Networking Essentials</div><div class="cert-org">Cisco Networking Academy</div></div>
+          </div>
+          <div class="cert-year">2020</div>
+        </div>
+        <div class="cert-row">
+          <!-- saran nama file: cert-ukk-tkj.jpg -->
+          <div class="cert-main">
+            <div class="cert-thumb">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>
+            </div>
+            <div><div class="cert-name">Uji Kompetensi Keahlian TKJ</div><div class="cert-org">Telkom Schools · Predikat Istimewa</div></div>
+          </div>
+          <div class="cert-year">2021</div>
+        </div>
+        <div class="cert-row">
+          <!-- saran nama file: cert-uu-pdp.jpg -->
+          <div class="cert-main">
+            <div class="cert-thumb">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>
+            </div>
+            <div><div class="cert-name">Undang-Undang Pelindungan Data Pribadi (UU PDP)</div><div class="cert-org">Telkom Corporate University — myDigiLearn</div></div>
+          </div>
+          <div class="cert-year">2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-panel reveal">
+        <div class="eyebrow" style="text-align:center;">Kontak</div>
+        <h2>Mari terhubung.</h2>
+        <p>Terbuka untuk peluang di bidang dokumentasi jaringan, GIS, maupun drafting infrastruktur telekomunikasi.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:wyuupratama@gmail.com">wyuupratama@gmail.com</a>
+          <a class="btn btn-ghost" href="tel:085342489845">085342489845</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/wyupratama" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 Wahyu Pratama · Dibuat untuk GitHub Pages
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
